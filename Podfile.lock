@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (5.4.3)
+  - AlamofireURLCache5 (0.5.0):
+    - Alamofire (~> 5.2)
+  - Kingfisher (6.3.1)
+  - ObjectMapper (3.5.3)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - AlamofireURLCache5
+  - Kingfisher
+  - ObjectMapper (~> 3.5)
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireURLCache5
+    - Kingfisher
+    - ObjectMapper
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlamofireURLCache5: b839c7db7c61bf40bdf467896eb587baecafb2c0
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: 111b5d24c01276a429a388dbd5549abf09d877f3
+
+COCOAPODS: 1.10.2
