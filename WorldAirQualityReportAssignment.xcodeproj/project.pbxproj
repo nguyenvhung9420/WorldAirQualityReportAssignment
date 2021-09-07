@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		76D613AF1B0FF3DF41D137DA /* Pods_WorldAirQualityReportAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1F6A95AF5DBAAD989444AC /* Pods_WorldAirQualityReportAssignment.framework */; };
+		E7586EE926E7D69B00DAF008 /* SingleWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7586EE826E7D69B00DAF008 /* SingleWeatherViewModel.swift */; };
 		E7D5990126E264CE0086C1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D5990026E264CE0086C1AE /* AppDelegate.swift */; };
 		E7D5990326E264CE0086C1AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D5990226E264CE0086C1AE /* SceneDelegate.swift */; };
 		E7D5990726E264D10086C1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D5990626E264D10086C1AE /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		84FF723E213440098D0C8D79 /* Pods-WorldAirQualityReportAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldAirQualityReportAssignment.debug.xcconfig"; path = "Target Support Files/Pods-WorldAirQualityReportAssignment/Pods-WorldAirQualityReportAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 		8573056321065F4CBEC6AA66 /* Pods-WorldAirQualityReportAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldAirQualityReportAssignment.release.xcconfig"; path = "Target Support Files/Pods-WorldAirQualityReportAssignment/Pods-WorldAirQualityReportAssignment.release.xcconfig"; sourceTree = "<group>"; };
+		E7586EE826E7D69B00DAF008 /* SingleWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWeatherViewModel.swift; sourceTree = "<group>"; };
 		E7D598FD26E264CE0086C1AE /* WorldAirQualityReportAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldAirQualityReportAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D5990026E264CE0086C1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7D5990226E264CE0086C1AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E7586EE426E7D65100DAF008 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				E7D5992526E265410086C1AE /* Network.swift */,
+				E7D5992826E265410086C1AE /* WeatherService.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		E7586EE526E7D66000DAF008 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7D5993C26E26CF80086C1AE /* EntryView.swift */,
+				E7D5992F26E2672B0086C1AE /* SearchViewController.swift */,
+				E7D5992126E265320086C1AE /* CityListView.swift */,
+				E7D5994626E278520086C1AE /* SingleCityWeather.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7586EE626E7D66D00DAF008 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E7D5992726E265410086C1AE /* SearchBar.swift */,
+				E7D5992426E265410086C1AE /* KeyboardHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E7586EE726E7D67800DAF008 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E7D5992626E265410086C1AE /* ListViewModel.swift */,
+				E7586EE826E7D69B00DAF008 /* SingleWeatherViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E7D598F426E264CE0086C1AE = {
 			isa = PBXGroup;
 			children = (
@@ -106,18 +146,13 @@
 		E7D598FF26E264CE0086C1AE /* WorldAirQualityReportAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				E7D5993C26E26CF80086C1AE /* EntryView.swift */,
-				E7D5994626E278520086C1AE /* SingleCityWeather.swift */,
-				E7D5992126E265320086C1AE /* CityListView.swift */,
-				E7D5992F26E2672B0086C1AE /* SearchViewController.swift */,
+				E7586EE726E7D67800DAF008 /* ViewModels */,
+				E7586EE526E7D66000DAF008 /* Views */,
 				E7D5991A26E265190086C1AE /* Models */,
+				E7586EE426E7D65100DAF008 /* Repository */,
+				E7586EE626E7D66D00DAF008 /* Helpers */,
 				E7D5990026E264CE0086C1AE /* AppDelegate.swift */,
 				E7D5990226E264CE0086C1AE /* SceneDelegate.swift */,
-				E7D5992426E265410086C1AE /* KeyboardHelper.swift */,
-				E7D5992526E265410086C1AE /* Network.swift */,
-				E7D5992726E265410086C1AE /* SearchBar.swift */,
-				E7D5992626E265410086C1AE /* ListViewModel.swift */,
-				E7D5992826E265410086C1AE /* WeatherService.swift */,
 				E7D5990626E264D10086C1AE /* Assets.xcassets */,
 				E7D5990B26E264D10086C1AE /* LaunchScreen.storyboard */,
 				E7D5990E26E264D10086C1AE /* Info.plist */,
@@ -271,6 +306,7 @@
 				E7D5992C26E265410086C1AE /* SearchBar.swift in Sources */,
 				E7D5994426E277F00086C1AE /* Subsidiaries.swift in Sources */,
 				E7D5994126E274080086C1AE /* Weather.swift in Sources */,
+				E7586EE926E7D69B00DAF008 /* SingleWeatherViewModel.swift in Sources */,
 				E7D5992B26E265410086C1AE /* ListViewModel.swift in Sources */,
 				E7D5992A26E265410086C1AE /* Network.swift in Sources */,
 				E7D5994726E278520086C1AE /* SingleCityWeather.swift in Sources */,
@@ -420,7 +456,7 @@
 				DEVELOPMENT_TEAM = HVC97Q25XV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WorldAirQualityReportAssignment/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,7 +479,7 @@
 				DEVELOPMENT_TEAM = HVC97Q25XV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WorldAirQualityReportAssignment/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

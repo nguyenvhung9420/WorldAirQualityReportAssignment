@@ -22,14 +22,15 @@ struct ContentView: View {
         ZStack(alignment: .bottom) {
             NavigationView {
                 List(viewModel.list, id: \.self) { each in
-                    Button(action: {
-                        
-                        if self.params.count >= 3 {
-                            self.showModal = true
-                        }
-                        
+                    Button(action:  {
                         self.params.append(each)
                         print("currents to query: \(self.params)")
+                        if self.params.count >= 3 {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.showModal = true
+                                return
+                            }
+                        }
                         self.viewModel.getLocationList(params: self.params) { error in
                             print("error happend: \(error)")
                             self.errorMessage = error.message == "city not found" ? "\(error.message) \(self.searchBar.text)" : "\(error.message)"

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import MapKit
 
 struct SingleCityView: View {
     @ObservedObject var viewModel = SingleWeatherViewModel()
@@ -19,11 +20,22 @@ struct SingleCityView: View {
     @State private var searchText: String = ""
     
     var params: [String] = []
+
     
     var body: some View {
         ZStack(alignment: .bottom) {
             NavigationView {
-                Text(viewModel.weather.toJSON().description)
+                 
+//                Text(viewModel.weather.toJSON().description)
+                
+                List {
+                    PieceView(title: "Country" , content: viewModel.weather.countryName ?? "")
+                    PieceView(title: "State" , content: viewModel.weather.stateName ?? "")
+                    PieceView(title: "Aqicn" , content: "\(viewModel.weather.pollution?.aqicn ?? 0)")
+                    PieceView(title: "Aqius" , content: "\(viewModel.weather.pollution?.aqius ?? 0)")
+                    PieceView(title: "Maincn" , content: "\(viewModel.weather.pollution?.maincn ?? 0)")
+                    PieceView(title: "Mainus" , content: "\(viewModel.weather.pollution?.mainus ?? 0)")
+                }
                 .navigationBarTitle(Text(viewModel.weather.cityName ?? "No city"))
                     .navigationBarItems(trailing: Button("Dismiss") {
                         self.showModal.toggle()
@@ -45,16 +57,6 @@ struct SingleCityView: View {
             }
             
             VStack(spacing: 0.0) {
-                
-                VStack(alignment: .trailing) {
-                    Image(systemName: "magnifyingglass.circle.fill")
-                        .font(.system(size: 26, weight: .regular))
-                        .foregroundColor(Color.white)
-                        .padding()
-                }.background(SwiftUI.Color.blue)
-                .cornerRadius(18)
-                .padding()
-                
                 VStack {
                     Text("\(self.errorMessage)")
                         .foregroundColor(.white)
@@ -66,6 +68,28 @@ struct SingleCityView: View {
                 .padding()
                 .opacity(self.errorMessage.trimAllSpaces() == "" ? 0 : 1)
             }
-        }
+        }.background(Color.white)
+    }
+}
+
+struct PieceView: View {
+    private let title: String
+    private let content: String
+    @State private var blurRadius: Int = 1
+    
+    init(title: String, content: String) {
+        self.title = title
+        self.content = content
+    }
+    
+    var body: some View {
+            VStack(alignment: .leading, spacing: 7) {
+                Text(title) .font(.system(size: 14))
+                Text(content).font(.system(size: 20))
+            }.padding()
+//            .cornerRadius(10)
+//            .padding()
+//            .border(Color.gray.opacity(0.5), width: 1)
+            
     }
 }

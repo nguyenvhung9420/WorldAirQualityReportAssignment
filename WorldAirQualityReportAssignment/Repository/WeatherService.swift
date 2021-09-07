@@ -17,6 +17,7 @@ class WeatherService {
     typealias ApiCompletion<T> = (T, String)->Void
     
     public func getSingleWeatherByname(params: [String], completion: @escaping ApiCompletion<Weather>, failure: @escaping (RequestError)->Void) {
+        print("getSingleWeatherByname: params = \(params)")
         var url: URL?
         guard let locationBasedUrl = RequestURL(type: .weatherByCityName).getURL(params: params) else {
             failure(RequestError(code: "", message: "Unable to get cities of this city and/or this location.", error: nil))
@@ -56,7 +57,7 @@ class WeatherService {
             }
             url = locationBasedUrl
         }
-      
+      print(url)
         guard let finalUrl = url else {
             failure(RequestError(code: "", message: "Unable to get cities due to some problems.", error: nil))
             return
@@ -144,7 +145,7 @@ enum RequestURLEnum: String {
     case stateList = "https://api.airvisual.com/v2/states?country=%@&key="
     case weatherIcon = "https://openweathermap.org/img/wn/%@@2x.png"
     
-    case weatherByCityName = "http://api.airvisual.com/v2/city?city=%@&state=%@&country=%@&key="
+    case weatherByCityName = "https://api.airvisual.com/v2/city?city=%@&state=%@&country=%@&key="
 }
 
 class RequestURL {
@@ -186,7 +187,8 @@ class RequestURL {
                 }
                 let lat = params[0]
                 let long = params[1]
-                let str = String(format: self.requestType?.rawValue ?? "", lat, long)
+                var str = String(format: self.requestType?.rawValue ?? "", lat, long)
+                str = "\(str)\(self.apiKey)"
                 return URL(string: str)
             case .weatherByCityName:
                 if !(params.count >= 3) {

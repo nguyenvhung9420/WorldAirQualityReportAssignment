@@ -8,10 +8,8 @@ class Weather: Mappable {
     var stateName: String?
     var countryName: String?
     
-    var lat: Double = 0.0
-    var long: Double = 0.0
-    var weather: Weather?
-    var forecast: Forecast?
+    var coords: [String] = []
+    var forecast: [Forecast] = []
     var pollution: Pollution?
     
     init() {}
@@ -22,17 +20,14 @@ class Weather: Mappable {
         cityName <- map["city"]
         stateName <- map["state"]
         countryName <- map["country"]
-        lat <- map["location.location.0"]
-        long <- map["location.location.1"]
+        coords <- map["location.coordinates"]
         
-        forecast <- map["forecasts.0"]
-        
-        weather <- map["current.weather"]
+        forecast <- map["forecasts"]
         pollution <- map["current.pollution"]
     }
     
     var icon: String {
-        return forecast?.iconName ?? "10d"
+        return forecast[0].iconName ?? "10d"
     }
     
     //    {

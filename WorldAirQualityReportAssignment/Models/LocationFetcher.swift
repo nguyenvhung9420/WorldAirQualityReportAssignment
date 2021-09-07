@@ -25,6 +25,9 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         self.onAccept = onAccept
+        if self.onAccept != nil {
+            self.onAccept!()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
